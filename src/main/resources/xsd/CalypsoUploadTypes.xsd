@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" jaxb:extensionBindingPrefixes="xjc" jaxb:version="1.0">
+	<xs:complexType name="CalypsoObject" abstract="true">
+		<xs:annotation>
+			<xs:documentation>
+				The abstract base type from which all the
+				CalypsoObject instances
+				are derived.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="CustomDataList" minOccurs="0"/>
+			<xs:element ref="Exporter" minOccurs="0"/>
+		    <xs:element name="ObjectStatus" type="xs:string" minOccurs="0"/>		    
+			<xs:element name="ObjectVersion">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="overwrite" type="xs:boolean" use="optional" default="false"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<!-- DTUP-8187 support for custom keywords -->
+			<xs:element name="Keywords" type="Keywords" minOccurs="0"/>
+		</xs:sequence>
+		<!--<xs:complexContent>
+			<xs:extension base="Object"/>
+		</xs:complexContent>-->
+	</xs:complexType>
+	<xs:complexType name="Keywords">
+		<xs:sequence>
+			<xs:element ref="Keyword" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CustomDataList">
+		<xs:annotation>
+			<xs:documentation>Custom Attributes are used to fill in gaps that are not supported by the CalypsoUploadDocument.
+			Users should be able to define as many attributes as needed in this structure and these are available in the API under
+			every object.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustomData" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HolidayCode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Holiday" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Holiday">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Holiday codes [NYC, LON...]</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DateRuleInSequences">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DateRuleInSequence" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DateRuleInSequence">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoObject">
+					<xs:sequence>
+						<xs:element name="SequenceNumber" type="xs:int" default="1"/>
+						<xs:element name="Number" type="xs:int" default="0"/>
+						<xs:element name="TenorType" type="xs:string" default="Days"/>
+						<xs:element name="OriginalDateRule" type="xs:string"/>
+						<xs:element name="DateB" type="xs:boolean" default="true"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<!-- Allow for any combination of numbers, letters, spaces. The key, however, 
+		cannot begin with a space -->
+	<xs:simpleType name="BusinessKeyStringType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9][a-zA-Z0-9\s]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="IndividualMonths">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IndividualMonth" type="xs:string" minOccurs="0" maxOccurs="12"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DateRulesNames">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DateRuleName" type="xs:string" nillable="true" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="PayRecType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Pay"/>
+			<xs:enumeration value="Rec"/>
+			<xs:enumeration value="PAY"/>
+			<xs:enumeration value="REC"/>
+			<xs:enumeration value="REC"/>
+			<xs:enumeration value="pay"/>
+			<xs:enumeration value="rec"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DateType">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="DateTimeType">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:complexType name="HolidayCodeType">
+		<xs:sequence>
+			<xs:element ref="Holiday" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductsType">
+		<xs:sequence>
+			<xs:element ref="Product" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Product">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<!-- <xs:simpleType name="DateRollType"> <xs:restriction base="xs:string"> 
+		<xs:enumeration value="NO_CHANGE"/> <xs:enumeration value="PRECEDING"/> <xs:enumeration 
+		value="FOLLOWING"/> <xs:enumeration value="MOD_FOLLOW"/> <xs:enumeration 
+		value="MOD_PRECED"/> <xs:enumeration value="IMM_MON"/> <xs:enumeration value="IMM_WED"/> 
+		<xs:enumeration value="END_MONTH"/> <xs:enumeration value="MOD_SUCC"/> <xs:enumeration 
+		value="SFE"/> </xs:restriction> </xs:simpleType> -->
+	<xs:simpleType name="PutCallType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PUT"/>
+			<xs:enumeration value="CALL"/>
+			<xs:enumeration value="put"/>
+			<xs:enumeration value="call"/>
+			<xs:enumeration value="Put"/>
+			<xs:enumeration value="Call"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- <xs:simpleType name="DayCountType"> <xs:restriction base="xs:string"> 
+		<xs:enumeration value="1/1"/> <xs:enumeration value="30/360"/> <xs:enumeration 
+		value="30/365"/> <xs:enumeration value="30E*/360"/> <xs:enumeration value="30E+/360"/> 
+		<xs:enumeration value="30E/360"/> <xs:enumeration value="30E/365"/> <xs:enumeration 
+		value="ACT+1/360"/> <xs:enumeration value="ACT+1/365"/> <xs:enumeration value="ACT/360"/> 
+		<xs:enumeration value="ACT/365"/> <xs:enumeration value="ACT/365.25"/> <xs:enumeration 
+		value="ACT/365I"/> <xs:enumeration value="ACT/365JPY"/> <xs:enumeration value="ACT/ACT"/> 
+		<xs:enumeration value="ACT/ACT29"/> <xs:enumeration value="ACTB/ACTB"/> <xs:enumeration 
+		value="ACT_365CM"/> <xs:enumeration value="BU/252"/> <xs:enumeration value="NL/365"/> 
+		</xs:restriction> </xs:simpleType> -->
+	<xs:element name="Action">
+		<xs:annotation>
+			<xs:documentation>ACTION to be applied
+			</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Tenor" type="xs:string" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Tenor of the Rate Index [3M, 6M, 1Y and so on...]
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ActionType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:complexType name="StringListType">
+		<xs:sequence>
+			<xs:element name="Value" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DoubleListType">
+		<xs:sequence>
+			<xs:element name="Value" type="xs:double" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HourMinsType">
+		<xs:sequence>
+			<xs:element name="Hours" type="xs:int"/>
+			<xs:element name="Mins" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CalendarCodeType">
+		<xs:sequence>
+			<xs:element ref="Calendar" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Calendar">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Calendar codes [NYC, LON...]</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:complexType name="DateLagType">
+		<xs:sequence>
+			<xs:element name="Offset" type="xs:long" minOccurs="0"/>
+			<xs:element name="OffsetBusDaysB" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Holidays" type="HolidayCodeType" minOccurs="0"/>
+			<xs:element name="DateRoll" type="xs:string" minOccurs="0"/>
+			<!-- type="DateRollType"  -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Parameters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Parameter" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Parameter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ParameterName" type="xs:string"/>
+				<xs:element name="ParameterValue" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProductCodes">
+		<xs:annotation>
+			<xs:documentation>Used to save ProductCodes, will have multiple ProductCode tags. [Name, Value pair ]</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProductCode" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="Name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Value" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProductCode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ProductCodeName" type="xs:string"/>
+				<xs:element name="ProductCodeValue" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+		<xs:complexType name="Groups">
+			<xs:sequence>
+				<xs:element ref="GroupName" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	
+	<xs:element name="GroupName">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Provide the different Group Name( e.g. @London)</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:complexType name="AttributesType">
+		<xs:complexContent>
+			<xs:extension base="CalypsoObject">
+				<xs:sequence>
+					<xs:element ref="Attribute" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Attribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Role" type="xs:string" minOccurs="0"/>
+				<xs:element name="ProcessingOrg" type="xs:string" minOccurs="0"/>
+				<xs:element name="AttributeName" type="xs:string" minOccurs="0"/>
+				<xs:element name="AttributeValue" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EOD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Date" type="DateType" minOccurs="0"/>
+				<xs:element name="EODtime" type="xs:int" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="UnderlyingProductDetails">
+		<xs:complexContent>
+			<xs:extension base="CalypsoObject">
+				<xs:sequence>
+					<xs:element ref="ProductCodeType"/>
+					<xs:element ref="ProductCodeValue"/>
+					<xs:element name="BasketName" type="xs:string" minOccurs="0"/>
+					<xs:element name="FXName" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="UnderlyingProductDetails" type="UnderlyingProductDetails">
+		<xs:annotation>
+			<xs:documentation>
+				This is used for UnderlyingProductDetails
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UnderlyingDetails">
+		<xs:annotation>
+			<xs:documentation>
+				This is used for FXSwap trade upload.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="UnderlyingProductDetails"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProductCodeValue">
+		<xs:annotation>
+			<xs:documentation>
+				Security Code Value used to identify the underlying security. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ProductCodeType">
+		<xs:annotation>
+			<xs:documentation>
+				Security Code used to identify the underlying security.
+				sample values are
+				RED
+				RED_PAIR
+				BB_TICKER
+				CUSIP
+				DebtSeniority
+				GCFCusip
+				ISIN
+				Local
+				RGA
+				LoanXID
+				TICKER
+				INTEX_NAME
+				INTEX_TRANCHE_TYPE
+				Common
+				SEDOL
+				BB_SYMBOL				 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:complexType name="NameValueType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Value" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Exporter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ObjectId" type="xs:long" minOccurs="0"/>
+				<xs:element name="ObjectType" type="xs:string" minOccurs="0"/>
+				<xs:element name="DateTime" type="DateTimeType" minOccurs="0"/>
+				<xs:element name="ObjectStatus" type="xs:string" minOccurs="0"/>
+			    <xs:element name="ObjectVersion" minOccurs="0">
+				    <xs:complexType>
+					    <xs:simpleContent>
+						    <xs:extension base="xs:int">
+							   <xs:attribute name="overwrite" type="xs:boolean" use="optional" default="false"/>
+						</xs:extension>
+					</xs:simpleContent>
+				 </xs:complexType>
+			   </xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="CAProductCode">
+		<xs:sequence>
+			<xs:element name="ProductCodeType" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProductCodeValue" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceEntityBasketIssuerDetails">
+		<xs:sequence>
+			<xs:element name="CreditEvents" type="TerminationEvents" minOccurs="0"/>
+			<xs:element name="Issuer" type="Issuer" maxOccurs="unbounded"/>
+			<xs:element name="CommonEventsFromMatrixB" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Issuer">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Weight" type="xs:double" default="0" minOccurs="0"/>
+			<xs:element name="Amount" type="xs:double" default="0" minOccurs="0"/>
+			<xs:element name="Seniority" type="xs:string" minOccurs="0"/>
+			<xs:element name="Restructuring" type="xs:string" minOccurs="0"/>
+			<xs:element name="Fixed" type="xs:double" minOccurs="0"/>
+			<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="Matrix" type="xs:string" minOccurs="0"/>
+			<xs:element ref="Obligations" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Obligation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProductCodeType" />
+				<xs:element ref="ProductCodeValue" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Obligations">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Obligation" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ReferenceEntityBasketDetails">
+		<xs:sequence>
+			<xs:element name="Basket" type="ReferenceEntityBasketComponent" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceEntityBasketTrancheDetails">
+		<xs:sequence>
+			<xs:element name="Tranche" type="ReferenceEntityBasketComponent" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceEntityBasketNthDefaultDetails">
+		<xs:sequence>
+			<xs:element name="NthDefault" type="ReferenceEntityBasketComponent" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceEntityBasketComponent">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Weight" type="xs:double" default="0" minOccurs="0"/>
+			<xs:element name="Amount" type="xs:double" default="0" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

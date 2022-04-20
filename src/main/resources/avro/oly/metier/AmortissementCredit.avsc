@@ -1,0 +1,155 @@
+{
+  "fields": [
+      {
+          "name": "event_type",
+          "type": "string",
+          "key":"event_type"
+      },
+      {
+          "name": "montant_echeance",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "montant_echeance",
+          "default": null,
+          "doc": "Montant écheance"
+      },
+      {
+          "name": "montant_interet",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "montant_interet",
+          "default": null,
+          "doc": "Montant interet"
+      },
+      {
+          "name": "date_fin_tombee",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "date_fin_tombee",
+          "default": null,
+          "doc": "Date fin tombee"
+      },
+      {
+          "name": "identifiant_technique",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "identifiant_technique",
+          "default": null,
+          "doc": "Identifiant technique"
+      },
+      {
+          "name": "date_arrete",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "date_arrete",
+          "default": null,
+          "doc": "Date arrete"
+      },
+      {
+          "name": "version",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "version",
+          "default": null,
+          "doc": "Version"
+      },
+      {
+          "name": "date_calcul",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "date_calcul",
+          "default": null,
+          "doc": "Date de calcul"
+      },
+      {
+          "name": "devise",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "devise",
+          "default": null,
+          "doc": "Devise"
+      },
+      {
+          "name": "compte_pcec",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "compte_pcec",
+          "default": null,
+          "doc": "Compte pcec"
+      },
+      {
+          "name": "identifiant_client_espece",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "identifiant_client_espece",
+          "default": null,
+          "doc": "Identifiant client espece"
+      },
+      {
+          "name": "numero_compte_espece",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "numero_compte_espece",
+          "default": null,
+          "doc": "Numero compte espece"
+      },
+      {
+          "name": "code_agence",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "code_agence",
+          "default": null,
+          "doc": "Code agence"
+      },
+      {
+          "name": "nom_agence",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "nom_agence",
+          "default": null,
+          "doc": "Nom agence"
+      },
+      {
+          "name": "reference_credit",
+          "type": [
+              "null",
+              "string"
+          ],
+          "key": "reference_credit",
+          "default": null,
+          "doc": "Reference credit"
+      }
+  ],
+  "name": "AmortissementCreditEvent",
+  "key": "AmortissementCreditEvent",
+  "namespace": "ma.cdgk.domain.events.bancaire",
+  "version": 1,
+  "type": "record",
+  "doc": "Entité d'AmortissementCredit"
+}

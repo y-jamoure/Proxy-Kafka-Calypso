@@ -1,0 +1,3856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.0">
+	<xs:include schemaLocation="CalypsoTradeIdTypes.xsd"/>
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:globalBindings>
+				<xjc:serializable uid="1"/>
+			</jaxb:globalBindings>
+		</xs:appinfo>
+		<xs:documentation>
+			This is schema defines Calypso Uploader
+			Acknowledgment Structure.			
+		</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="CalypsoAcknowledgementObject" abstract="true">
+		<xs:annotation>
+			<xs:documentation>
+			The abstract base type from which all the CalypsoAcknowledgement instances
+			are derived.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="LegendAttrGroup"/>
+	</xs:complexType>
+	<xs:attributeGroup name="LegendAttrGroup">
+		<xs:attribute name="Uploaded" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:int"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="Rejected" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:int"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="Received" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:int"/>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="VolSurfaceName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="VolSurfaceCurrency">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="VolSurfaceDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Value" type="xs:string"/>
+	<xs:element name="ValuationDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="UserName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Action">
+		<xs:annotation>
+			<xs:documentation>ACTION to be applied
+			</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoUserDefault">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserName"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAcknowledgement">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CalypsoTrades" minOccurs="0"/>
+				<xs:element ref="CalypsoSFTRConfigs" minOccurs="0"/>
+				<xs:element ref="CalypsoBooks" minOccurs="0"/>
+				<xs:element ref="CalypsoLegalEntityRelations" minOccurs="0"/>
+				<xs:element ref="CalypsoEligibilityRules" minOccurs="0"/>
+				<xs:element ref="CalypsoUserGroups" minOccurs="0"/>
+				<xs:element ref="CalypsoUsers" minOccurs="0"/>
+				<xs:element ref="CalypsoUserDefaults" minOccurs="0"/>
+				<xs:element ref="CalypsoLegalEntities" minOccurs="0"/>
+				<xs:element ref="CalypsoHolidayRules" minOccurs="0"/>
+				<xs:element ref="CalypsoEventDates" minOccurs="0"/>
+				<xs:element ref="CorporateActions" minOccurs="0"/>
+				<xs:element ref="CalypsoReferenceEntityBaskets" minOccurs="0"/>
+				<xs:element ref="CalypsoQuotes" minOccurs="0"/>
+				<xs:element ref="CalypsoLECreditRatings" minOccurs="0"/>
+				<xs:element ref="CalypsoLegalAgreements" minOccurs="0"/>
+				<xs:element ref="CalypsoEntities" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveOffsets" minOccurs="0"/>
+				<xs:element ref="CalypsoProducts" minOccurs="0"/>
+				<xs:element ref="LegalEntityContacts" minOccurs="0"/>
+				<xs:element ref="CalypsoValuations" minOccurs="0"/>
+				<xs:element ref="CalypsoProductCodes" minOccurs="0"/>
+				<xs:element ref="CalypsoFeedAddresses" minOccurs="0"/>
+				<xs:element ref="CalypsoVolSurfaces" minOccurs="0"/>
+				<xs:element ref="CalypsoProjectedDividends" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingSwaps" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingSwapSpreads" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingFRAs" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingMoneyMarkets" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingBasisSwaps" minOccurs="0"/>
+				<xs:element ref="CalypsoManualPostings" minOccurs="0"/>
+				<xs:element ref="CalypsoTradeKeywords" minOccurs="0"/>
+				<xs:element ref="CalypsoCalendars" minOccurs="0"/>
+				<xs:element ref="CalypsoProductCreditRatings" minOccurs="0"/>
+				<xs:element ref="CalypsoAccountingEvents" minOccurs="0"/>
+				<xs:element ref="CalypsoAccountingSDIs" minOccurs="0"/>
+				<xs:element ref="CalypsoAccountingRules" minOccurs="0"/>
+				<xs:element ref="CalypsoAccountingBookLinks" minOccurs="0"/>
+				<xs:element ref="CalypsoAccountingRulesConfigs" minOccurs="0"/>
+				<xs:element ref="CalypsoAccounts" minOccurs="0"/>
+				<xs:element ref="CustomCashflows" minOccurs="0"/>
+				<xs:element ref="CustomCashflowsSimple" minOccurs="0"/>
+				<xs:element ref="CalypsoFutureContracts" minOccurs="0"/>
+				<xs:element ref="CalypsoFutureOptionContracts" minOccurs="0"/>
+				<xs:element ref="CalypsoListedFRAContracts" minOccurs="0"/>
+				<xs:element ref="CalypsoCommoditys" minOccurs="0"/>
+				<xs:element ref="CalypsoCommodityResets" minOccurs="0"/>
+				<xs:element ref="CalypsoRateIndexs" minOccurs="0"/>
+				<xs:element ref="CalypsoInterestRateTenors" minOccurs="0"/>
+				<xs:element ref="CalypsoCurrencies" minOccurs="0"/>
+				<xs:element ref="CalypsoCurrencyPairs" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingFxFWDS" minOccurs="0"/>
+				<xs:element ref="CalypsoTradeFees" minOccurs="0"/>
+				<xs:element ref="CalypsoEventTypeActions" minOccurs="0"/>
+				<xs:element ref="CalypsoErrors" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingFxForwardsFixed" minOccurs="0"/>
+				<xs:element ref="CalypsoProbabilityCurves" minOccurs="0"/>
+				<xs:element ref="CalypsoFXRateResets" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingFutures" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingListedFRAs" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingContangos" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingBondFutures" minOccurs="0"/>
+				<xs:element ref="CalypsoDateRules" minOccurs="0"/>
+				<xs:element ref="CalypsoExpTimeZones" minOccurs="0"/>
+				<xs:element ref="CalypsoVolSurfaceUnderlyingSwaptions" minOccurs="0"/>
+				<xs:element ref="CalypsoVolSurfaceUnderlyingCaps" minOccurs="0"/>
+				<xs:element ref="CalypsoVolSurfaceUnderlyingFutureOptions" minOccurs="0"/>
+				<xs:element ref="CalypsoVolSurfaceUnderlyingFXOptions" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveUnderlyingETOs" minOccurs="0"/>
+				<xs:element ref="CalypsoScheduledTasks" minOccurs="0"/>
+				<xs:element ref="CalypsoTasks" minOccurs="0"/>
+				<xs:element ref="CalypsoTaskTriggers" minOccurs="0"/>
+				<xs:element ref="CalypsoETOContracts" minOccurs="0"/>
+				<xs:element ref="CalypsoCurves" minOccurs="0"/>
+				<xs:element ref="CalypsoMappings" minOccurs="0"/>
+				<xs:element ref="CalypsoMappingTypes" minOccurs="0"/>
+				<xs:element ref="CalypsoSDFilters" minOccurs="0"/>
+				<xs:element ref="CalypsoTriangulationCcyRuleSets" minOccurs="0"/>
+				<xs:element ref="CalypsoVolSurfaceUnderlyingQuotes" minOccurs="0"/>
+				<xs:element ref="CalypsoAccountSweepingConfigs" minOccurs="0"/>
+				<xs:element ref="CalypsoHedgeRelationshipDefinitions" minOccurs="0"/>
+				<xs:element ref="CalypsoPLMarks" minOccurs="0"/>
+				<xs:element ref="CalypsoCashFlows" minOccurs="0"/>
+				<xs:element ref="MarginCallContracts" minOccurs="0"/>
+				<xs:element ref="CalypsoGlobalRatingConfigurations" minOccurs="0"/>
+				<xs:element ref="CalypsoLiabilityGroupContexts" minOccurs="0"/>
+				<xs:element ref="CalypsoOptimizationConfigurations" minOccurs="0"/>
+				<xs:element ref="CalypsoClearingServiceConfigurations" minOccurs="0"/>
+				<xs:element ref="CalypsoLiquidityExternalMovementSets" minOccurs="0"/>
+				<xs:element ref="CalypsoTargetConfigurations" minOccurs="0"/>
+				<xs:element ref="CalypsoAccountInterestConfigs" minOccurs="0"/>
+				<xs:element ref="CalypsoManualDateSchedules" minOccurs="0"/>
+				<xs:element ref="CalypsoCurveRateSchedules" minOccurs="0"/>
+				<xs:element ref="CalypsoFunds" minOccurs="0"/>
+				<xs:element ref="CalypsoHeadroomCheckLimitValues" minOccurs="0"/>
+				<xs:element ref="CalypsoHeadroomCheckCollateralValues" minOccurs="0"/>
+				<xs:element ref="CalypsoMarginCallCreditRatingConfigs" minOccurs="0"/>
+				<xs:element ref="CalypsoBondPoolFactors" minOccurs="0"/>
+				<!-- HD 118686: Correlation Matrix Uploader -->
+				<xs:element ref="CalypsoCorrelationMatrices" minOccurs="0"/>
+				<xs:element ref="CalypsoCovarianceMatrices" minOccurs="0"/>
+				<xs:element ref="CalypsoReconventions" minOccurs="0"/>
+				<xs:element ref="CalypsoGenericComments" minOccurs="0"/>
+				<xs:element ref="CollateralAllocations" minOccurs="0"/>
+				<xs:element ref="CalypsoVolSurfaceOffsets" minOccurs="0"/>
+				<!-- DTUP-8487 -->
+				<xs:element ref="CalypsoVolSurfaceDerivedSABRs" minOccurs="0"/>
+				<xs:element ref="CalypsoCashManualSDIs" minOccurs="0"/>
+				<xs:element ref="CalypsoGroupHierarchies" minOccurs="0"/>
+				<xs:element ref="CalypsoStrategies" minOccurs="0"/>
+				<xs:element ref="CalypsoInvestmentRules" minOccurs="0"/>
+				<xs:element ref="CalypsoTradeBundles" minOccurs="0"/>
+				<xs:element ref="MandateProductInfos" minOccurs="0"/>
+				<xs:element ref="CalypsoRatingEquivalences" minOccurs="0"/>
+				<xs:element ref="CalypsoBenchmarks" minOccurs="0"/>
+				<xs:element ref="CalypsoPortfolioSwapContracts" minOccurs="0"/>
+				<xs:element ref="CalypsoCustomPortfolios" minOccurs="0"/>
+				<xs:element ref="CalypsoEquityResets" minOccurs="0"/>
+				<xs:element ref="CalypsoDomainValues" minOccurs="0"/>
+				<xs:element ref="CalypsoMatchingAliases" minOccurs="0"/>
+				<xs:element ref="CalypsoCountries" minOccurs="0"/>
+				<xs:element ref="CalypsoBaskets" minOccurs="0"/>
+				<xs:element ref="CalypsoOrders" minOccurs="0"/>
+				<xs:element ref="CalypsoFXVolSurfaces" minOccurs="0"/>
+				<xs:element ref="CalypsoSecurityDetails" minOccurs="0"/>
+				<xs:element ref="CalypsoWrongWayRiskGroups" minOccurs="0"/>
+				<xs:element ref="WebServiceResponse" minOccurs="0"/>
+				<xs:element ref="CalypsoSwiftMessageMappingConfigs" minOccurs="0"/>
+				<xs:element ref="CalypsoNonMatureDepositRunOffs" minOccurs="0"/>
+				<xs:element ref="CalypsoETFs" minOccurs="0"/>				
+				<xs:element ref="CalypsoReinvestmentActions" minOccurs="0"/>
+				<xs:element ref="CalypsoWorkflowAccesses" minOccurs="0"/>	
+				<xs:element ref="CalypsoInventoryCheckConfigs" minOccurs="0"/>		
+				<xs:element ref="CalypsoMultiQuoteMappings" minOccurs="0"/>			
+				<xs:element ref="CalypsoBankingProducts" minOccurs="0"/>
+				<xs:element ref="CalypsoVolSurfaceUnderlyingCDSIndexOptions" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="UploadFile">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="UploadDate" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="TotalTime">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attributeGroup ref="LegendAttrGroup"/>
+		</xs:complexType>
+	</xs:element>	
+	<xs:element name="Status">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Failed"/>
+				<xs:enumeration value="Rejected"/>
+				<xs:enumeration value="Success"/>
+				<xs:enumeration value="Successful"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Seniority">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SecCodeValue">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SecCodeName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RuleName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RatingValue">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RatingType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="QuoteType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="QuoteName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="QuoteDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ProcessingOrg">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Name">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Message" type="xs:string"/>
+	<xs:element name="LegalEntityContacts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="LegalEntityContact" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingSwapSpreads">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingSwapSpread" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingSwapSpread">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="QuoteName"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingSwaps">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingSwap" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingSwap">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="QuoteName"/>
+				<xs:element ref="Index"/>
+				<xs:element ref="IndexTenor"/>
+				<xs:element ref="Currency"/>
+				<xs:element ref="Source"/>
+				<xs:element ref="FixSideCouponFrequency"/>
+				<xs:element ref="Maturity"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingFRAs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingFRA" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingFRA">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="QuoteName"/>
+				<xs:element ref="Index"/>
+				<xs:element ref="IndexTenor"/>
+				<xs:element ref="StartDate"/>
+				<xs:element ref="EndDate"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingMoneyMarkets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingMoneyMarket" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingMoneyMarket">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="QuoteName"/>
+				<xs:element ref="Index"/>
+				<xs:element ref="SpecificDates"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingBasisSwaps">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingBasisSwap" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingBasisSwap">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="QuoteName"/>
+				<xs:element ref="BaseCurrency"/>
+				<xs:element ref="BasisCurrency"/>
+				<xs:element ref="BaseIndex"/>
+				<xs:element ref="BasisIndex"/>
+				<xs:element ref="BaseIndexTenor"/>
+				<xs:element ref="BasisIndexTenor"/>
+				<xs:element ref="BaseSource"/>
+				<xs:element ref="BasisSource"/>
+				<xs:element ref="Maturity"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BaseCurrency">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BasisCurrency">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BaseIndex">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BasisIndex">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BaseIndexTenor">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BasisIndexTenor">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BaseSource">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BasisSource">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Index">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SpecificDates">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="StartDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="EndDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IndexTenor">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Source">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FixSideCouponFrequency">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Maturity">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoManualPostings">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoManualPosting" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoManualPosting">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="PostingId"/>
+				<xs:element ref="Currency"/>
+				<xs:element ref="PostingDescription"/>
+				<xs:element ref="Book"/>
+				<xs:element ref="DebitAccount"/>
+				<xs:element ref="CreditAccount"/>
+				<xs:element ref="Underlying"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PostingId">
+		<xs:simpleType>
+			<xs:restriction base="xs:int"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PostingDescription">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DebitAccount">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CreditAccount">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Underlying">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Book">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="LegalEntityContact">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="LEContactName"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element name="contactType" type="xs:string" minOccurs="0"/>
+				<xs:element name="processingOrg" type="xs:string" minOccurs="0"/>
+				<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+				<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+				<xs:element name="Role" type="xs:string" minOccurs="0"/>
+				<xs:element ref="LegalEntity"/>
+				<xs:element name="Product" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LegalEntity">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="LegalAgreementName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="LegalAgreementDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:date"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="LEContactName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Item">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Input">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="HolidayName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="GroupName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FeedName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FeedAddress">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ExternalRef">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="EventName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="EventDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Error">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Code" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Item"/>
+				<xs:element ref="Message"/>
+				<xs:element ref="Value"/>
+			</xs:sequence>
+			<xs:attribute name="Type" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="InvalidData"/>
+						<xs:enumeration value="MissingData"/>
+						<xs:enumeration value="MissingSecurity"/>
+						<xs:enumeration value="StaticDataError"/>
+						<xs:enumeration value="Rejection"/>
+						<xs:enumeration value="HoldForMatching"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<!-- DTUP-8187  -->
+	<xs:complexType name="PublishObject">
+		<xs:sequence>
+			<xs:element name="Keywords" type="Keywords"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Keywords">
+		<xs:sequence>
+			<xs:element ref="Keyword" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ProductName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CurveName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CurveDetails">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CurveDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Currency">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CorporateActions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CorporateAction" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CorporateAction">
+		<xs:complexType>
+			<!-- DTUP-8187 -->
+			<xs:complexContent>
+				<xs:extension base="PublishObject">
+					<xs:sequence>
+						<xs:element ref="ExternalRef"/>
+						<xs:element ref="Status"/>
+						<xs:element ref="Action"/>
+						<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoReferenceEntityBaskets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoReferenceEntityBasket" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoReferenceEntityBasket">
+		<xs:complexType>
+			<!-- DTUP-8187 -->
+			<xs:complexContent>
+				<xs:extension base="PublishObject">
+					<xs:sequence>
+						<xs:element ref="Name"/>
+						<xs:element name="Id" type="xs:long" minOccurs="0"/>
+						<xs:element ref="Status"/>
+						<xs:element ref="Action"/>
+						<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaces">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurface" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurface">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="VolSurfaceName"/>
+				<xs:element ref="VolSurfaceDate"/>
+				<xs:element ref="VolSurfaceCurrency"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceOffsets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurfaceOffset" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceOffset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="VolSurfaceName"/>
+				<xs:element ref="VolSurfaceDate"/>
+				<xs:element ref="VolSurfaceCurrency"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- DTUP-8487 -->
+	<xs:element name="CalypsoVolSurfaceDerivedSABRs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurfaceDerivedSABR" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceDerivedSABR">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="VolSurfaceName"/>
+				<xs:element ref="VolSurfaceDate"/>
+				<xs:element ref="VolSurfaceCurrency"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoValuations">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoValuation" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoValuation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TradeId" minOccurs="0"/>
+				<xs:element name="ExternalReference" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="ValuationDate"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoUsers">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoUser" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoUserGroups">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoUserGroup" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoUserDefaults">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoUserDefault" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoUser">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserName"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProductCodes">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoProductCode" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLiquidityExternalMovementSets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoLiquidityExternalMovementSet" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLiquidityExternalMovementSet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="ExternalRef"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTradeKeywords">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoTradeKeyword" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTradeKeyword">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="CalypsoTradeId"/>
+				<xs:element ref="ExternalRef"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCalendars">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCalendar" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCalendar">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="CalendarCodeName"/>
+				<xs:element ref="Currency"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalendarCodeName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoOrders">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoOrder" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoOrderId">
+		<xs:simpleType>
+			<xs:restriction base="xs:long"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoOrder">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ExternalRef"/>
+				<xs:element ref="ProcessingOrg"/>
+				<xs:element ref="CalypsoOrderId"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTrades">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoTrade" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="CalypsoTrade">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ExternalRef"/>
+				<xs:element ref="ProcessingOrg"/>
+				<xs:element ref="CalypsoTradeId"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TradeCustomKeywords"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TradeCustomKeywords">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Keyword" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Keyword">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoQuotes">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoQuote" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoQuote">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="QuoteName"/>
+				<xs:element ref="QuoteDate"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProjectedDividends">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoProjectedDividend" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProjectedDividend">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="CurveName"/>
+				<xs:element ref="Currency"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProductCode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Status"/>
+			</xs:sequence>
+			<xs:attribute name="CodeName" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodeValue" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLegalEntity">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Name"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLegalEntities">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoLegalEntity" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="CalypsoEntities">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoEntity" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoEntity">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EntityId" type="xs:long" minOccurs="0"/>
+				<xs:element name="EntityName" type="xs:string"/>
+				<xs:element ref="TradeId" minOccurs="0"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="type" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="CalypsoLegalAgreements">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoLegalAgreement" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLegalAgreement">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="LegalAgreementId"/>
+				<xs:element ref="LegalAgreementName"/>
+				<xs:element ref="LegalAgreementDate"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LegalAgreementId">
+		<xs:simpleType>
+			<xs:restriction base="xs:int"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoLECreditRatings">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoLECreditRating" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLECreditRating">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="LegalEntity"/>
+				<xs:element ref="Seniority"/>
+				<xs:element ref="Agency"/>
+				<xs:element ref="RatingType"/>
+				<xs:element ref="RatingValue"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProductCreditRatings">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoProductCreditRating" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProductCreditRating">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Agency"/>
+				<xs:element ref="SecurityCodeType"/>
+				<xs:element ref="SecurityCode"/>
+				<xs:element ref="RatingType"/>
+				<xs:element ref="RatingValue"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SecurityCode">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SecurityCodeType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoHolidayRules">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoHolidayRule" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoHolidayRule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="RuleName"/>
+				<xs:element name="RuleType" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoUserGroup">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="GroupName"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFeedAddresses">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoFeedAddress" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFeedAddress">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="QuoteName"/>
+				<xs:element ref="QuoteType"/>
+				<xs:element ref="FeedName"/>
+				<xs:element ref="FeedAddress"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProduct">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="ProductName"/>
+				<xs:element ref="SecCodeName"/>
+				<xs:element ref="SecCodeValue"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProducts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoProduct" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveOffsets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveOffset" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveOffset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CurveDetails"/>
+				<xs:element ref="CurveDate"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveRateSchedules">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveRateSchedule" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveRateSchedule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CurveDetails"/>
+				<xs:element ref="CurveDate"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProbabilityCurves">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoProbabilityCurve" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoProbabilityCurve">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CurveDetails"/>
+				<xs:element ref="CurveDate"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoEventDates">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoEventDate" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoEventDate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HolidayName"/>
+				<xs:element ref="EventName"/>
+				<xs:element ref="EventDate"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBooks">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoBook" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+		<xs:element name="CalypsoSFTRConfigs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoSFTRConfig" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBook">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Name"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+		<xs:element name="CalypsoSFTRConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element name="Id" type="xs:long" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLegalEntityRelations">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoLegalEntityRelation" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLegalEntityRelation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Name"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoDateRules">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoDateRule" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoDateRule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Name"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Agency">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<!-- <xs:element name="Action"> <xs:simpleType> <xs:restriction base="xs:string"/> 
+		</xs:simpleType> </xs:element> -->
+	<!-- Start of AccountingEvent -->
+	<xs:element name="CalypsoAccountingEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="EventType" type="xs:string"/>
+				<xs:element name="ProductType" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end of AccountingEvent -->
+	<!-- Start of AccountingSDI -->
+	<xs:element name="CalypsoAccountingSDI">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="BeneficiaryShortName" type="xs:string"/>
+				<xs:element name="Role" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="Reference" minOccurs="0" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- End of AccountingSDI -->
+	<!-- Start of AccountingRule -->
+	<xs:element name="CalypsoAccountingRule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="RuleName" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- End of AccountingRule -->
+	<!-- Start of AccountingBookLink -->
+	<xs:element name="CalypsoAccountingBookLink">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="RuleName" type="xs:string"/>
+				<xs:element name="BookName" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- End of AccountingBookLink -->
+	<!-- Start of AccountingRulesconfig -->
+	<xs:element name="CalypsoAccountingRulesConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="RuleName" type="xs:string"/>
+				<xs:element name="EventType" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- End of AccountingRulesConfig -->
+	<!-- Start of Account -->
+	<xs:element name="CalypsoAccount">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="AccountName" type="xs:string"/>
+				<xs:element name="LegalEntity" type="xs:string"/>
+				<xs:element name="LERole" type="xs:string"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- End of Accounts -->
+	<xs:element name="CalypsoAccountingEvents">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoAccountingEvent" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccountingSDIs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoAccountingSDI" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccountingRules">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoAccountingRule" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccountingBookLinks">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoAccountingBookLink" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccountingRulesConfigs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoAccountingRulesConfig" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccounts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoAccount" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomCashflowsSimple">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CustomCashflowSimple" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomCashflows">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CustomCashflow" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomCashflow">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ExternalRef"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="CashflowSimple" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CashflowOption" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomCashflowSimple">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ExternalRef"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="CashflowSimple" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CashflowSimple">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TradeType"/>
+				<xs:element ref="AssetId"/>
+				<xs:element name="LegType" type="xs:string"/>
+				<xs:element ref="FlowType"/>
+				<xs:element ref="StartDate"/>
+				<xs:element ref="EndDate"/>
+				<xs:element ref="Notional"/>
+				<xs:element ref="Amount"/>
+				<xs:element ref="Rate"/>
+				<xs:element ref="Spread"/>
+				<xs:element ref="IntDays"/>
+				<xs:element ref="ManualReset"/>
+				<xs:element ref="ResetDate"/>
+				<xs:element ref="Index"/>
+				<xs:element ref="Currency"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CashflowOption">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TradeType"/>
+				<xs:element ref="AssetId"/>
+				<xs:element name="LegType" type="xs:string"/>
+				<xs:element ref="FlowType"/>
+				<xs:element ref="StartDate"/>
+				<xs:element ref="EndDate"/>
+				<xs:element ref="Strike1"/>
+				<xs:element ref="Strike2"/>
+				<xs:element ref="ManualReset"/>
+				<xs:element ref="ResetDate"/>
+				<xs:element ref="Index"/>
+				<xs:element ref="Currency"/>
+				<xs:element ref="Spread"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Strike1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Strike2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ManualReset">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ResetDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<!-- <xs:element name="Tenor"> <xs:simpleType> <xs:restriction base="xs:string"/> 
+		</xs:simpleType> </xs:element> -->
+	<xs:element name="TradeType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AssetId">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SubId">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FlowType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Notional">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Amount">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Rate">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Spread">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IntDays">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoFutureContracts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoFutureContract" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFutureContract">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFutureOptionContracts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoFutureOptionContract" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFutureOptionContract">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoListedFRAContracts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoListedFRAContract" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoListedFRAContract">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCommoditys">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCommodity" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCommodity">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="CommodityCurrency" type="xs:string"/>
+				<xs:element name="CommodityName" type="xs:string"/>
+				<xs:element name="CommodityLocation" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCommodityResets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCommodityReset" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCommodityReset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="CommodityResetName" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoRateIndexs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoRateIndex" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoRateIndex">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="IndexName" type="xs:string"/>
+				<xs:element name="IndexCurrency" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Start of Calypso InterestRateTenors -->
+	<xs:element name="CalypsoInterestRateTenors">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoInterestRateTenor" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoInterestRateTenor">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="RateIndexName" type="xs:string"/>
+				<xs:element name="RateIndexCurrency" type="xs:string"/>
+				<xs:element name="RateIndexSource" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- End of Calypso InterestRateTenors -->
+	<xs:element name="CalypsoCurrencies">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurrency" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurrency">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurrencyPairs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurrencyPair" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurrencyPair">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="PrimaryCurrency" type="xs:string"/>
+				<xs:element name="QuotingCurrency" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingFxFWDS">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingFxFWD" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingFxFWD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="QuoteName"/>
+				<xs:element name="PrimaryCurrency" type="xs:string"/>
+				<xs:element name="SecondaryCurrency" type="xs:string"/>
+				<xs:element name="FwdTenor" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTradeFees">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoTradeFee" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTradeFee">
+		<xs:annotation>
+			<xs:documentation>Collection of Fees to be saved will have multiple
+				Fee tags</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element name="ExternalReference" type="xs:string"/>
+				<xs:element name="Action" type="xs:string"/>
+				<xs:element ref="TradeId" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Fee" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Fee">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FeeType" type="xs:string"/>
+				<xs:element name="FeeDate" type="xs:string"/>
+				<xs:element name="FeeStartDate" type="xs:string" nillable="true"/>
+				<xs:element name="FeeEndDate" type="xs:string" nillable="true"/>
+				<xs:element name="FeeKnownDate" type="xs:string" nillable="true"/>
+				<xs:element name="FeeAmount" type="xs:string"/>
+				<xs:element name="FeeDirection" type="xs:string"/>
+				<xs:element name="FeeCounterParty" type="xs:string"/>
+				<xs:element name="Currency" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoEventTypeActions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoEventTypeAction" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoEventTypeAction">
+		<xs:annotation>
+			<xs:documentation>Collection of Fees to be saved will have multiple
+				Fee tags</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element name="ExternalReference" type="xs:string"/>
+				<xs:element name="Action" type="xs:string"/>
+				<xs:element ref="TradeId" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="EventTypeAction" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EventTypeAction">
+		<xs:annotation>
+			<xs:documentation>
+				EventTypeAction for products that implement
+				EventTypeActionBased interface
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ActionType" type="xs:string"/>
+				<xs:element name="Amount" type="xs:double"/>
+				<xs:element name="Rate" type="xs:double"/>
+				<xs:element name="Price" type="xs:double"/>
+				<xs:element name="FeeAdj" type="xs:double"/>
+				<xs:element name="AgreementDate" type="xs:string"/>
+				<xs:element name="EffectiveDate" type="xs:string"/>
+				<xs:element name="InterestCleanup" type="xs:boolean" default="false"/>
+				<xs:element name="ExternalRef" type="xs:string"/>
+				<xs:element name="Comment" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoErrors">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoError" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoError">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingFxForwardsFixed">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingFxForwardFixed" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingFxForwardFixed">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="QuoteName"/>
+				<xs:element name="PrimaryCurrency" type="xs:string"/>
+				<xs:element name="SecondaryCurrency" type="xs:string"/>
+				<xs:element name="ForwardDate" type="xs:date"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingFutures">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingFuture" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingFuture">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="ContractName" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element name="NumberOfContract" type="xs:int"/>
+				<xs:element name="DeletedContractRanks" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingListedFRAs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingListedFRA" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingListedFRA">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="ContractName" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element name="NumberOfContract" type="xs:int"/>
+				<xs:element name="DeletedContractRanks" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingContangos">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingContango" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingContango">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="QuoteName"/>
+				<xs:element name="PrimaryCurrency" type="xs:string"/>
+				<xs:element name="SecondaryCurrency" type="xs:string"/>
+				<xs:element name="FwdTenor" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoEligibilityRules">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoEligibilityRule" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+		<xs:element name="CalypsoEligibilityRule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Name"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingBondFutures">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingBondFuture" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingBondFuture">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="ContractName" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element name="NumberOfContract" type="xs:int"/>
+				<xs:element name="DeletedContractRanks" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoExpTimeZones">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoExpTimeZone" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoExpTimeZone">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Timezone" type="xs:string"/>
+				<xs:element name="ExpTime" type="xs:string"/>
+				<xs:element name="EndTime" type="xs:string"/>
+				<xs:element name="Multiplier" type="xs:double"/>
+				<xs:element name="UseVolDateCutB" type="xs:boolean"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFXRateResets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoFXRateReset" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFXRateReset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="FXRateOptionName" type="xs:string"/>
+				<xs:element name="PrimaryCurrency" type="xs:string"/>
+				<xs:element name="SecondaryCurrency" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingSwaptions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurfaceUnderlyingSwaption" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingSwaption">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element ref="Index"/>
+				<xs:element ref="IndexTenor"/>
+				<xs:element ref="Source"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MarginCallContracts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="MarginCallContract" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MarginCallContract">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCashFlows">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCashFlow" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCashFlow">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="ProductCodeType" type="xs:string" minOccurs="0"/>
+				<xs:element name="ProductCodeValue" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingCaps">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurfaceUnderlyingCap" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingCap">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element ref="Index"/>
+				<xs:element name="IndexTenor" type="xs:string"/>
+				<xs:element ref="Source"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingFutureOptions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurfaceUnderlyingFutureOption" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingFutureOption">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element name="Contract" type="xs:string"/>
+				<xs:element name="ExpiryDate" type="xs:date"/>
+				<xs:element name="ValuationDate" type="xs:date"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingFXOptions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurfaceUnderlyingFXOption" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingFXOption">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="PrimaryCurrency" type="xs:string"/>
+				<xs:element name="QuoteCurrency" type="xs:string"/>
+				<xs:element name="OptionType" type="xs:string"/>
+				<xs:element name="Expiry" type="xs:string"/>
+				<xs:element name="Delta" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingETOs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurveUnderlyingETO" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurveUnderlyingETO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="ContractName" type="xs:string"/>
+				<xs:element name="Strike" type="xs:string"/>
+				<xs:element name="OptionType" type="xs:string"/>
+				<xs:element name="ContractType" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element name="NumberOfContract" type="xs:int"/>
+				<xs:element name="DeletedContractRanks" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoScheduledTasks">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoScheduledTask" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoScheduledTask">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="ExternalRef"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="TaskType" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTasks">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoTask" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTask">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action" minOccurs="0"/>
+				<xs:element ref="Status" minOccurs="0"/>
+				<xs:element ref="ExternalRef" minOccurs="0"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="TaskType" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTaskTriggers">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoTaskTrigger" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTaskTrigger">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Action" type="xs:string" minOccurs="0"/>
+				<xs:element name="Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="TriggerName" type="xs:string" minOccurs="0"/>
+				<xs:element name="TaskExternalReference" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoETOContracts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoETOContract" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoETOContract">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="SVN" type="xs:string"/>
+				<xs:element name="Exchange" type="xs:string"/>
+				<xs:element name="ETOContractType" type="xs:string"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurves">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCurve" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCurve">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Type" type="xs:string"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Instance" type="xs:string"/>
+				<xs:element name="DateTime" type="xs:string"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element name="RateIndexTenor" type="xs:string"/>
+				<xs:element name="RateIndex" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMappingTypes">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoMappingType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMappingType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="InterfaceName" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMappings">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoMapping" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMapping">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="InterfaceName" type="xs:string"/>
+				<xs:element name="TypeName" type="xs:string"/>
+				<xs:element name="InterfaceValue" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoSDFilters">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoSDFilter" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoSDFilter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Comment" type="xs:string"/>
+				<xs:element name="Group" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTriangulationCcyRuleSets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoTriangulationCcyRuleSet" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTriangulationCcyRuleSet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Name"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="CalypsoTriangulationCcyRule" maxOccurs="unbounded"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTriangulationCcyRule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element name="PrimaryCurrency" type="xs:string"/>
+				<xs:element name="QuotingCurrency" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingQuotes">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurfaceUnderlyingQuote" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingQuote">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Currency" type="xs:string"/>
+				<xs:element name="VolSurfaceName" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccountSweepingConfigs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoAccountSweepingConfig" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccountSweepingConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="AccountSweepingConfigId" type="xs:int"/>
+				<xs:element name="ConfigType" type="xs:string"/>
+				<xs:element name="TransferType" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoHedgeRelationshipDefinitions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoHedgeRelationshipDefinition" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoHedgeRelationshipDefinition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="HedgeRelationshipDefinitionId" type="xs:int"/>
+				<xs:element name="HedgeDefinition" type="xs:string"/>
+				<xs:element name="HedgeAccountingScheme" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoPLMarks">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoPLMark" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoPLMark">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TradeId" type="xs:long"/>
+				<xs:element name="PositionId" type="xs:long"/>
+				<xs:element name="ExternalRefrence" type="xs:string"/>
+				<xs:element ref="MarkDetails"/>
+				<xs:element ref="MarkDate"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MarkDetails">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="MarkDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:date"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoGlobalRatingConfigurations">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoGlobalRatingConfiguration" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoGlobalRatingConfiguration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLiabilityGroupContexts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoLiabilityGroupContext" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoLiabilityGroupContext">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoOptimizationConfigurations">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoOptimizationConfiguration" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoOptimizationConfiguration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--ClearingServiceConfigurationAcknowledgement-->
+	<xs:element name="CalypsoClearingServiceConfigurations">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoClearingServiceConfiguration" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoClearingServiceConfiguration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END:ClearingServiceConfigurationAcknowledgement-->
+	<xs:element name="CalypsoTargetConfigurations">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoTargetConfiguration" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTargetConfiguration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccountInterestConfigs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoAccountInterestConfig" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoAccountInterestConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoHeadroomCheckLimitValues">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoHeadroomCheckLimitValue" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoHeadroomCheckLimitValue">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="NodeName" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoManualDateSchedule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoManualDateSchedules">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoManualDateSchedule" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFunds">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoFund" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFund">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoHeadroomCheckCollateralValues">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoHeadroomCheckCollateralValue" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoHeadroomCheckCollateralValue">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="NodeName" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMarginCallCreditRatingConfigs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoMarginCallCreditRatingConfig" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMarginCallCreditRatingConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBondPoolFactors">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoBondPoolFactor" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBondPoolFactor">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="ProductName"/>
+				<xs:element ref="SecCodeName"/>
+				<xs:element ref="SecCodeValue"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCovarianceMatrices">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCovarianceMatrix" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCovarianceMatrix">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CovarianceMatrixName" type="xs:string"/>
+				<xs:element ref="CovarianceMatrixDate"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CovarianceMatrixDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoCorrelationMatrices">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCorrelationMatrix" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCorrelationMatrix">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CorrelationMatrixName" type="xs:string"/>
+				<xs:element ref="CorrelationMatrixDate"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CorrelationMatrixDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CalypsoReconventions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoReconvention" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoReconvention">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TradeId"/>
+				<xs:element ref="ExternalRef"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoGenericComments">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoGenericComment" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoGenericComment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="ExternalReference" type="xs:string"/>
+				<xs:element name="ObjectClass" type="xs:string"/>
+				<xs:element name="ObjectReference" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoGroupHierarchies">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoGroupHierarchy" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoGroupHierarchy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoEquityResets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoEquityReset" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoEquityReset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="ResetName" type="xs:string" minOccurs="0"/>
+				<xs:element name="SecCodeName" type="xs:string" minOccurs="0"/>
+				<xs:element name="SecCodeValue" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CollateralAllocations">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CollateralAllocation" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CollateralAllocation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="ContractName" type="xs:string" minOccurs="0"/>
+				<xs:element name="ReferenceAttributes" type="AttributesType" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="AttributesType">
+		<xs:sequence>
+			<xs:element ref="Attribute" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Attribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AttributeName" type="xs:string" minOccurs="0"/>
+				<xs:element name="AttributeValue" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCashManualSDIs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCashManualSDI" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCashManualSDI">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="Reference" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTradeBundles">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoTradeBundle" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoTradeBundle">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="BundleId" type="xs:int" minOccurs="0"/>
+				<xs:element name="BundleType" type="xs:string" minOccurs="0"/>
+				<xs:element name="BundleName" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MandateProductInfos">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="MandateProductInfo" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MandateProductInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoRatingEquivalences">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoRatingEquivalence" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoRatingEquivalence">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Order" type="xs:integer"/>
+				<xs:element name="RatingType" type="xs:string"/>
+				<xs:element name="EquivalentName" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoStrategies">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoStrategy" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoStrategy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="ExternalReference" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoInvestmentRules">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoInvestmentRule" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoInvestmentRule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBenchmarks">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoBenchmark" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBenchmark">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="ExternalReference" type="xs:string" minOccurs="0"/>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoPortfolioSwapContracts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoPortfolioSwapContract" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoPortfolioSwapContract">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="ContractName" type="xs:string" minOccurs="0"/>
+				<xs:element name="ContractCodeType" type="xs:string" minOccurs="0"/>
+				<xs:element name="ContractCodeValue" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCustomPortfolios">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCustomPortfolio" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCustomPortfolio">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="ExternalReference" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoDomainValues">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoDomainValue" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoDomainValue">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMatchingAliases">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoMatchingAlias" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMatchingAlias">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="Identifier" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCountries">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoCountry" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoCountry">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="ISOCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBaskets">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoBasket" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBasket">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="BasketId" type="xs:int" minOccurs="0"/>
+				<xs:element name="BasketName" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFXVolSurfaces">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoFXVolSurface" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoFXVolSurface">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="VolSurfaceName"/>
+				<xs:element ref="VolSurfaceDate"/>
+				<xs:element ref="VolSurfaceCurrency"/>
+				<xs:element name="VolSurfaceSecondaryCurrency" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoSecurityDetails">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoSecurityDetail" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoSecurityDetail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element ref="TradeId" minOccurs="0"/>
+				<xs:element name="ExternalReference" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoWrongWayRiskGroups">
+        <xs:complexType>
+            <xs:complexContent>
+               <xs:extension base="CalypsoAcknowledgementObject">
+                  <xs:sequence>
+                      <xs:element ref="CalypsoWrongWayRiskGroup" maxOccurs="unbounded"/>
+                  </xs:sequence>
+               </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CalypsoWrongWayRiskGroup">
+       <xs:complexType>
+           <xs:sequence>
+           <xs:element ref="Action"/>
+           <xs:element ref="Status"/>
+           <xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+           <xs:element name="WrongWayRiskGroupName" type="xs:string" minOccurs="0"/>
+           </xs:sequence>
+       </xs:complexType>  
+    </xs:element>
+	<xs:element name="WebServiceResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RequestId" type="xs:long" minOccurs="0"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoSwiftMessageMappingConfigs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoSwiftMessageMappingConfig" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoSwiftMessageMappingConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="Template" type="xs:string" minOccurs="0"/>
+				<xs:element name="Agent" type="xs:string" minOccurs="0"/>
+				<xs:element name="ProcessingOrg" type="xs:string" minOccurs="0"/>
+				<xs:element name="Book" type="xs:string" minOccurs="0"/>
+				<xs:element name="CounterParty" type="xs:string" minOccurs="0"/>
+				<xs:element name="ProductType" type="xs:string" minOccurs="0"/>
+				<xs:element name="SDFilter" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoNonMatureDepositRunOffs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoNonMatureDepositRunOff" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoNonMatureDepositRunOff">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="RuleName" type="xs:string" minOccurs="0"/>
+				<xs:element name="RuleAction" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+		<xs:element name="CalypsoETFs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoETF" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoETF">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int"/>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoReinvestmentActions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoReinvestmentAction" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoReinvestmentAction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="RuleName" type="xs:string" minOccurs="0"/>
+				<xs:element name="RuleAction" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoWorkflowAccesses">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoWorkflowAccess" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoWorkflowAccess">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:string" minOccurs="0"/>
+				<xs:element name="AccessEntity" type="xs:string" minOccurs="0"/>
+				<xs:element name="GroupName" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoInventoryCheckConfigs">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoInventoryCheckConfig" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoInventoryCheckConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element name="Id" type="xs:long" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMultiQuoteMappings">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoMultiQuoteMapping" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoMultiQuoteMapping">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element name="SecCodeName" type="xs:string" minOccurs="0"/>
+				<xs:element name="SecCodeValue" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBankingProducts">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoBankingProduct" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoBankingProduct">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Status"/>
+				<xs:element ref="Action"/>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="Id" type="xs:long" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingCDSIndexOptions">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CalypsoAcknowledgementObject">
+					<xs:sequence>
+						<xs:element ref="CalypsoVolSurfaceUnderlyingCDSIndexOption" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CalypsoVolSurfaceUnderlyingCDSIndexOption">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Action"/>
+				<xs:element ref="Status"/>
+				<xs:element name="Id" type="xs:int" minOccurs="0"/>
+				<xs:element name="SecCodeName" type="xs:string" minOccurs="0"/>
+				<xs:element name="SecCodeValue" type="xs:string" minOccurs="0"/>
+				<xs:element name="OptionType" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

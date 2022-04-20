@@ -1,0 +1,94 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: proxy-kafka-calypso
+
+artemis:
+  broker-password: ${JMS_BROKER_PASSWORD:admin}
+  broker-url: ${JMS_BROKER_URL:tcp://127.0.0.1:61616}
+  broker-username: ${JMS_BROKER_USERNAME:admin}
+
+logging:
+  level:
+    ROOT: INFO
+    io:
+      confluent:
+        kafka:
+          serializers: TRACE
+
+
+
+mongo:
+  url: http//localhost:27017
+  database: event_store
+  normalized-collection: normalized-event
+  technical-collection: technical-event
+
+camel:
+  springboot:
+    main-run-controller: true
+  component:
+    activemq:
+      error-handler-logging-level: INFO
+      error-handler-log-stack-trace: true
+      broker-url: ${JMS_BROKER_URL:tcp://127.0.0.1:61616}
+      password: ${JMS_BROKER_PASSWORD:admin}
+      trust-all-packages: true
+      username: ${JMS_BROKER_USERNAME:admin}
+      lazy-create-transaction-manager: true
+      accept-messages-while-stopping: true
+      transacted: true
+      connection-factory: ActiveMQConnectionFactory
+      transaction-manager: JmsTransactionManager
+      acknowledgement-mode-name: CLIENT_ACKNOWLEDGE
+    kafka:
+      schema-registry-u-r-l: ${KAFKA_SCHEMA_REGISTRY_URL:http://127.0.0.1:8081}
+#      security-protocol: SASL_PLAINTEXT
+#      sasl-mechanism: PLAIN
+#      sasl-jaas-config: ${KAFKA_SASL_JAAS:org.apache.kafka.common.security.plain.PlainLoginModule required username=admin password=admin-secret;}
+      bridge-error-handler: true
+      brokers: ${KAFKA_BROKER_URL:127.0.0.1:9092}
+      request-required-acks: all
+      enable-idempotence: true
+      max-in-flight-request: 1
+      retries: 5
+      auto-commit-enable: false
+      auto-offset-reset: earliest
+      group-id: proxy-kafka-calypso
+      allow-manual-commit: true
+      break-on-first-error: true
+      valueSerializer: io.cloudevents.kafka.CloudEventSerializer
+      valueDeserializer : io.cloudevents.kafka.CloudEventDeserializer
+#      valueSerializer: ma.cdgk.integration.camel.serde.KafkaJmsProxySerializer
+#      valueDeserializer: ma.cdgk.integration.camel.serde.KafkaJmsProxyDeserializer
+
+source-destination-config:
+  jmsToKafkaQueueTopicPairs:
+    - queue: jsonSourceQueue
+      topic: topic1FromJsonSourceQueue
+      queue-format: json
+      queue-mapping-class: ma.cdgk.integration.model.Event #Eventjson
+      normalizer: ma.cdgk.integration.normalizer.AmortissementCreditNormalizer
+      topic-format: CloudEvent #tjr
+      topic-mapping-class: ma.cdgk.integration.model.Event #avroType #tjr
+      mongo-technical-journaly: true #tjr
+      mongo-normalized-journaly: true #tjr
+
+  kafkaToJmsQueueTopicPairs:
+    - topic: topic1FromJsonSourceQueue
+      queue: jsonReceiverQueue
+      queue-format: xml
+      #queueMappingClass: ma.cdk.inetgartion.calypso.domain.Amortissement
+      queue-mapping-class: ma.cdgk.domain.events.bancaire.AmortissementCreditEvent
+      topic-format: CloudEvent
+      topic-mapping-class: ma.cdgk.domain.events.bancaire.AmortissementCreditEvent
+      xml-mapper: ma.cdgk.integration.camel.mapping.MapAmortissementCreditEventToXmlAmortissement
+      json-mapper: ma.cdgk.integration.camel.mapping.MapAmortissementCreditEventToJsonAmortissement #not implmented yet
+      mongo-technical-journaly: false #tjr
+      mongo-normalized-journaly: true #tjr
+
+service-config:
+  systeme-source: calypso
+

@@ -1,0 +1,23 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="amortissement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code_agence" type="xs:string" />
+                <xs:element name="compte_pcec" type="xs:string" />
+                <xs:element name="date_arrete" type="xs:string" />
+                <xs:element name="date_calcul" type="xs:string" />
+                <xs:element name="date_fin_tombee" type="xs:string" />
+                <xs:element name="devise" type="xs:string" />
+                <xs:element type="xs:string" name="event_type"/>
+                <xs:element name="identifiant_client_espece" type="xs:string" />
+                <xs:element name="identifiant_technique" type="xs:string" />
+                <xs:element name="montant_echeance" type="xs:string" />
+                <xs:element name="montant_interet" type="xs:string" />
+                <xs:element name="nom_agence" type="xs:string" />
+                <xs:element name="numero_compte_espece" type="xs:string" />
+                <xs:element name="reference_credit" type="xs:string" />
+                <xs:element name="version" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" jaxb:extensionBindingPrefixes="xjc" jaxb:version="1.0">
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:globalBindings>
+				<xjc:serializable uid="1"/>
+				
+				
+                
+			</jaxb:globalBindings>
+		</xs:appinfo>
+		<xs:documentation>
+			This is schema defines Calypso Uploader Object Structure.
+			The top element for any valid Calypso Uploader document is the CalypsoUploadDocument element
+			defined in this file.
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="CalypsoUploadStaticData.xsd"/>
+	<xs:include schemaLocation="CalypsoUploadTradeData.xsd"/>
+	<xs:element name="CalypsoUploadDocument">
+		<xs:annotation>
+			<xs:documentation>The Root Node of the XML Document.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CalypsoTrade" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoBOMessage" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoBook" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoLegalEntityRelation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoLegalEntity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CorporateAction" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoQuotes" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCalendars" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoHolidayRules" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoEventDates" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoProduct" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoProductCodes" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Contact" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoProjectedDividends" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoValuations" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CustomCashflowSimple" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CustomCashflow" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoUserGroup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoPLMarks" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoUser" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoUserDefault" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- <xs:element ref="UserDefaults" minOccurs="0" maxOccurs="unbounded"/> -->
+				<xs:element ref="CalypsoLegalAgreement" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoEntity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCurveOffsets" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- Begin:: HD 69428: Added xsd object for curve underlying object -->
+				<xs:element ref="CalypsoCurveUnderlying" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- END:: HD 69428: Added xsd object for curve underlying object -->
+				<xs:element ref="CalypsoProductCreditRatings" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoLECreditRatings" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- HD 66835: Volatility Surface Uploader -->
+				<xs:element ref="CalypsoVolSurface" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- Begin:: HD 70346: Added xsd object for feed address object -->
+				<xs:element ref="CalypsoFeedAddresses" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- End:: HD 70346: Added xsd object for feed address object -->
+				<xs:element ref="CalypsoManualPosting" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- Support trade keywords -->
+				<xs:element ref="CalypsoTradeKeywords" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoSDI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoAccount" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoAccountEvent" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoAccountingRule" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoAccountRulesConfig" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoAccountRulesBookLink" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCommodity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoFutureContract" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoFutureOptionContract" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCommodityReset" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoRateIndex" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoInterestRateTenor" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCurrencies" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCurrencyPair" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoTradeFees" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoEventTypeActions" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoFXRateReset" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoDateRule" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoExpTimeZone" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoVolSurfaceUnderlying" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoScheduledTask" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoETOContract" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCurve" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoMappings" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoStaticDataFilter" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoTriangulationCcyRuleSet" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCustomObject" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoVolSurfaceUnderlyingQuote" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoAccountSweepingConfig" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoHedgeRelationshipDefinition" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MarginCallContract" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCashFlow" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoGlobalRatingConfiguration" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoLiabilityGroupContext" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoTask" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoTaskTrigger" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoClearingServiceConfiguration" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoOptimizationConfiguration" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoLiquidityExternalMovementSet" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoTargetConfiguration" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoAccountInterestConfig" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoManualDateSchedule" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCurveRateSchedules" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoFund" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoHeadroomCheckLimitValues" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoHeadroomCheckCollateralValues" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoMappingTypes" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoMarginCallCreditRatingConfig" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoListedFRAContract" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoBondPoolFactors" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- HD 118686: Correlation Matrix Uploader -->
+				<xs:element ref="CalypsoCorrelationMatrices" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCovarianceMatrices" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoReconvention" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoGenericComment" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CollateralAllocation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoVolSurfaceOffsets" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCashManualSDI" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoGroupHierarchy" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoTradeBundle" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoStrategy" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoInvestmentRule" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MandateProductInfo" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoRatingEquivalences" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoBenchmark" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoPortfolioSwapContract" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCustomPortfolio" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoEquityReset" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoDomainValue" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoMatchingAlias" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoCountries" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoBasket" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoOrder" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoFXVolSurface" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoSecurityDetails" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoWrongWayRiskGroup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoSwiftMessageMappingConfig" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoVolSurfaceDerivedSABR" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoNonMatureDepositRunOff" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoETF" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoReinvestmentAction" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoWorkflowAccess" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoReferenceEntityBasket" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoInventoryCheckConfig" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoMultiQuoteMapping" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoBankingProduct" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoEligibilityRule" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CalypsoSFTRConfig" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="UploadDate" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ClientCode" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Version" use="optional" default="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Source" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="MappingRequired" use="optional">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>
+							Possible values are true/false default value is true
+							true - indicates the framework to do the mapping
+							false - indicates the framework not to do the mapping.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
